@@ -9,7 +9,7 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY ope "http://www.semanticweb.org/ontologies/2013/2/OPE.owl#" >
-	<!ENTITY qudt "http://data.nasa.gov/qudt/owl/qudt#" >
+    <!ENTITY qudt "http://data.nasa.gov/qudt/owl/qudt#" >
 ]>
 
 
@@ -22,12 +22,12 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/">
-	 xmlns:qudt="http://data.nasa.gov/qudt/owl/qudt#">
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:qudt="http://data.nasa.gov/qudt/owl/qudt#">
     <owl:Ontology rdf:about="http://purl.org/net/exergame/ns#">
         <rdfs:label>Exergame ontology</rdfs:label>
         <rdfs:comment>Ontology of exergames</rdfs:comment>
-		<owl:versionInfo>v 1.2 2015/10/24</owl:versionInfo>
+        <owl:versionInfo>v 1.3 2016/04/13</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -146,14 +146,14 @@
         <rdfs:domain rdf:resource="&exergame;MetricRelation"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
-	
-	
-	<!-- http://purl.org/net/exergame/ns#metricUnit -->
+    
+    
+    <!-- http://purl.org/net/exergame/ns#metricUnit -->
 
     <owl:ObjectProperty rdf:about="&exergame;metricUnit">
         <rdfs:label>metric unit</rdfs:label>
         <rdfs:comment>Indicates the unit of measurement of a game metric.</rdfs:comment>
-		<rdfs:range rdf:resource="&exergame;Unit"/>
+        <rdfs:range rdf:resource="&exergame;Unit"/>
         <rdfs:domain rdf:resource="&exergame;MetricRelation"/>
         <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
@@ -366,12 +366,12 @@
         <rdfs:comment>A variable or feature that records player&apos;s performance within the game (e.g. score, total time).</rdfs:comment>
     </owl:Class>
     
-	<!-- http://purl.org/net/exergame/ns#Unit -->
-	<owl:Class rdf:about="&exergame;Unit">
-		<rdfs:label>Unit of measurement</rdfs:label>
-		<owl:sameAs rdf:resource="&qudt;Unit"/>
+    <!-- http://purl.org/net/exergame/ns#Unit -->
+    <owl:Class rdf:about="&exergame;Unit">
+        <rdfs:label>Unit of measurement</rdfs:label>
+        <owl:sameAs rdf:resource="&qudt;Unit"/>
         <rdfs:comment>A unit of measurement.</rdfs:comment>
-	</owl:Class>
+    </owl:Class>
 
     <!-- http://purl.org/net/exergame/ns#Interface -->
 
