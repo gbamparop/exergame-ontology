@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY exergame "http://purl.org/net/exergame/ns#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ope "http://www.semanticweb.org/ontologies/2013/2/OPE.owl#" >
+	<!ENTITY qudt "http://data.nasa.gov/qudt/owl/qudt#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:exergame="http://purl.org/net/exergame/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ope="http://www.semanticweb.org/ontologies/2013/2/OPE.owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/">
+	 xmlns:qudt="http://data.nasa.gov/qudt/owl/qudt#">
+    <owl:Ontology rdf:about="http://purl.org/net/exergame/ns#">
+        <rdfs:label>Exergame ontology</rdfs:label>
+        <rdfs:comment>Ontology of exergames</rdfs:comment>
+		<owl:versionInfo>v 1.2 2015/10/24</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#concept -->
+
+    <owl:ObjectProperty rdf:about="&exergame;concept">
+        <rdfs:label>concept</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#exercise -->
+
+    <owl:ObjectProperty rdf:about="&exergame;exercise">
+        <rdfs:label>exercise</rdfs:label>
+        <rdfs:comment>Indicates the exercise associated with a game.</rdfs:comment>
+        <rdfs:range rdf:resource="&exergame;Exercise"/>
+        <rdfs:domain rdf:resource="&exergame;Game"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#exerciseGoal -->
+
+    <owl:ObjectProperty rdf:about="&exergame;exerciseGoal">
+        <rdfs:label>exercise goal</rdfs:label>
+        <rdfs:comment>Indicates the exercise goal of the game.</rdfs:comment>
+        <rdfs:range rdf:resource="&exergame;ExerciseGoal"/>
+        <rdfs:domain rdf:resource="&exergame;Game"/>
+        <rdfs:subPropertyOf rdf:resource="&exergame;goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#game -->
+
+    <owl:ObjectProperty rdf:about="&exergame;game">
+        <rdfs:label>game</rdfs:label>
+        <rdfs:comment>Indicates the game in a session.</rdfs:comment>
+        <rdfs:range rdf:resource="&exergame;Game"/>
+        <rdfs:domain rdf:resource="&exergame;GameSession"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#gameController -->
+
+    <owl:ObjectProperty rdf:about="&exergame;gameController">
+        <rdfs:label>game controller</rdfs:label>
+        <rdfs:comment>Indicates the game controllers used in a game.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&exergame;interface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#gameGoal -->
+
+    <owl:ObjectProperty rdf:about="&exergame;gameGoal">
+        <rdfs:label>game goal</rdfs:label>
+        <rdfs:comment>Indicates the game goal of the game.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;Game"/>
+        <rdfs:range rdf:resource="&exergame;GameGoal"/>
+        <rdfs:subPropertyOf rdf:resource="&exergame;goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#goal -->
+
+    <owl:ObjectProperty rdf:about="&exergame;goal">
+        <rdfs:label>goal</rdfs:label>
+        <rdfs:domain rdf:resource="&exergame;Game"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#goalMetric -->
+
+    <owl:ObjectProperty rdf:about="&exergame;goalMetric">
+        <rdfs:label>goal metric</rdfs:label>
+        <rdfs:comment>Indicates the goal metrics of a game.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;Game"/>
+        <rdfs:range rdf:resource="&exergame;GoalMetric"/>
+        <rdfs:subPropertyOf rdf:resource="&exergame;goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#interface -->
+
+    <owl:ObjectProperty rdf:about="&exergame;interface">
+        <rdfs:label>interface</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#metricName -->
+
+    <owl:ObjectProperty rdf:about="&exergame;metricName">
+        <rdfs:label>metric name</rdfs:label>
+        <rdfs:comment>Indicates the metric that a game result refers to.</rdfs:comment>
+        <rdfs:range rdf:resource="&exergame;GoalMetric"/>
+        <rdfs:domain rdf:resource="&exergame;MetricRelation"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://purl.org/net/exergame/ns#metricUnit -->
+
+    <owl:ObjectProperty rdf:about="&exergame;metricUnit">
+        <rdfs:label>metric unit</rdfs:label>
+        <rdfs:comment>Indicates the unit of measurement of a game metric.</rdfs:comment>
+		<rdfs:range rdf:resource="&exergame;Unit"/>
+        <rdfs:domain rdf:resource="&exergame;MetricRelation"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#metricRelation -->
+
+    <owl:ObjectProperty rdf:about="&exergame;metricRelation">
+        <rdfs:label>metric relation</rdfs:label>
+        <rdfs:comment>Indicates the relation between the result, goal metrics and their corresponding values in a session.</rdfs:comment>
+        <rdfs:range rdf:resource="&exergame;MetricRelation"/>
+        <rdfs:domain rdf:resource="&exergame;Result"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#player -->
+
+    <owl:ObjectProperty rdf:about="&exergame;player">
+        <rdfs:label>player</rdfs:label>
+        <rdfs:comment>Indicates the player of a game in a session.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;GameSession"/>
+        <rdfs:range rdf:resource="&exergame;Player"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#presentationHardware -->
+
+    <owl:ObjectProperty rdf:about="&exergame;presentationHardware">
+        <rdfs:label>presentation hardware</rdfs:label>
+        <rdfs:comment>Indicates the device in which a game is presented.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&exergame;interface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#result -->
+
+    <owl:ObjectProperty rdf:about="&exergame;result">
+        <rdfs:label>result</rdfs:label>
+        <rdfs:comment>Indicates the result of a game session.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;GameSession"/>
+        <rdfs:range rdf:resource="&exergame;Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#site -->
+
+    <owl:ObjectProperty rdf:about="&exergame;site">
+        <rdfs:label>site</rdfs:label>
+        <rdfs:comment>Indicates the site where a game session is conducted.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;GameSession"/>
+        <rdfs:range rdf:resource="&exergame;Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#siteAddress -->
+
+    <owl:ObjectProperty rdf:about="&exergame;siteAddress">
+        <rdfs:label>site address</rdfs:label>
+        <rdfs:comment>Indicates the address of the site and may include street address, geo-location, telephone e.t.c.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;Site"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#siteType -->
+
+    <owl:ObjectProperty rdf:about="&exergame;siteType">
+        <rdfs:label>site type</rdfs:label>
+        <rdfs:comment>Indicates the type of the site.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;Site"/>
+        <rdfs:range rdf:resource="&exergame;SiteType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#endDateTime -->
+
+    <owl:DatatypeProperty rdf:about="&exergame;endDateTime">
+        <rdfs:label>End date</rdfs:label>
+        <rdfs:comment>The end date of a game session.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;GameSession"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#metricValue -->
+
+    <owl:DatatypeProperty rdf:about="&exergame;metricValue">
+        <rdfs:label>Metric value</rdfs:label>
+        <rdfs:comment>Gives the value of a goal metric in a game session.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;MetricRelation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#startDateTime -->
+
+    <owl:DatatypeProperty rdf:about="&exergame;startDateTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Start date</rdfs:label>
+        <rdfs:comment>The start date of a game session.</rdfs:comment>
+        <rdfs:domain rdf:resource="&exergame;GameSession"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#Exercise -->
+
+    <owl:Class rdf:about="&exergame;Exercise">
+        <rdfs:label>Exercise</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ope;Exercise"/>
+        <rdfs:comment>The exercise that is related to the game in terms of functional movements, engaged musculoskeletal system parts etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#ExerciseGoal -->
+
+    <owl:Class rdf:about="&exergame;ExerciseGoal">
+        <rdfs:label>Exercise goal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&exergame;Goal"/>
+        <rdfs:comment>One of the main goals of an exergame is the proper execution of the exercise.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#Game -->
+
+    <owl:Class rdf:about="&exergame;Game">
+        <rdfs:label>Game</rdfs:label>
+        <rdfs:comment>One instance of this class is created for each game.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#GameController -->
+
+    <owl:Class rdf:about="&exergame;GameController">
+        <rdfs:label>Game controller</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&exergame;Interface"/>
+        <rdfs:comment>The input device used to manipulate games entities (e.g. Microsoft Kinect, Wii Balanceboard).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#GameGoal -->
+
+    <owl:Class rdf:about="&exergame;GameGoal">
+        <rdfs:label>Game goal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&exergame;Goal"/>
+        <rdfs:comment>Goals and conditions that should be fulfilled in order for the player to succeed in the game.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#GameSession -->
+
+    <owl:Class rdf:about="&exergame;GameSession">
+        <rdfs:label>Game session</rdfs:label>
+        <rdfs:comment>Game session refers to the period in which a player is playing a game. It begins when the game starts and ends either with the end of the game or when for some reason the game stops.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#Goal -->
+
+    <owl:Class rdf:about="&exergame;Goal">
+        <rdfs:label>Game goal</rdfs:label>
+        <rdfs:comment>Game goals refer to the objectives and conditions that must be fulfilled in order for the player to succeed in the game.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#GoalMetric -->
+
+    <owl:Class rdf:about="&exergame;GoalMetric">
+        <rdfs:label>Goal metric</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&exergame;Goal"/>
+        <rdfs:comment>A variable or feature that records player&apos;s performance within the game (e.g. score, total time).</rdfs:comment>
+    </owl:Class>
+    
+	<!-- http://purl.org/net/exergame/ns#Unit -->
+	<owl:Class rdf:about="&exergame;Unit">
+		<rdfs:label>Unit of measurement</rdfs:label>
+		<owl:sameAs rdf:resource="&qudt;Unit"/>
+        <rdfs:comment>A unit of measurement.</rdfs:comment>
+	</owl:Class>
+
+    <!-- http://purl.org/net/exergame/ns#Interface -->
+
+    <owl:Class rdf:about="&exergame;Interface">
+        <rdfs:label>Interface</rdfs:label>
+        <rdfs:comment>Interface is the shared boundary between user and computer and refers to how the player interacts with the game as well as how the game is presented to the player.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#MetricRelation -->
+
+    <owl:Class rdf:about="&exergame;MetricRelation">
+        <rdfs:label>Metric relation</rdfs:label>
+        <rdfs:comment>An auxiliary class used to link goal metrics with their values in a game session.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#Player -->
+
+    <owl:Class rdf:about="&exergame;Player">
+        <rdfs:label>Player</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <rdfs:comment>The user that plays a game in a session.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#PresentationHardware -->
+
+    <owl:Class rdf:about="&exergame;PresentationHardware">
+        <rdfs:label>Presentation hardware</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&exergame;Interface"/>
+        <rdfs:comment>The device that is used to display the game (e.g. smart TV, Tablet, e.t.c.).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#Result -->
+
+    <owl:Class rdf:about="&exergame;Result">
+        <rdfs:label>Result</rdfs:label>
+        <rdfs:comment>A game result includes all data derived from game metrics in one session of a game.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#Site -->
+
+    <owl:Class rdf:about="&exergame;Site">
+        <rdfs:label>Site</rdfs:label>
+        <rdfs:comment>The site refers to the venue where a game session is conducted.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/net/exergame/ns#SiteType -->
+
+    <owl:Class rdf:about="&exergame;SiteType">
+        <rdfs:label>Site type</rdfs:label>
+        <rdfs:comment>The category that a site belongs to (e.g. Home, University laboratory e.t.c.)</rdfs:comment>
+    </owl:Class>
+    
+
+</rdf:RDF>
